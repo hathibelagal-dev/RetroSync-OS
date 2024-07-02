@@ -23,8 +23,13 @@ done:
 main:
     mov si, startMessage
     call print
+    mov si, hangMessage
+    call print
 
-startMessage db "Welcome to RetroSync OS", 0
+    jmp hang
+
+startMessage db "Welcome to RetroSync OS", 13, 10, 0
+hangMessage db "You can now turn the system off.", 13, 10, 0
 
 times 510 - ($ - $$) db 0
 db 0x55
